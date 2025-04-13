@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct ConverterApp_iOSApp: App {
+    @StateObject private var viewModel = CurrencyViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WelcomeView()
+                .environmentObject(viewModel)
         }
     }
 }
