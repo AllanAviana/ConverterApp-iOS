@@ -10,9 +10,12 @@ import Foundation
 class CurrencyViewModel: ObservableObject {
     @Published var currencyInfo: CurrencyInfo?
     @Published var errorMessage: String?
+    @Published var UiState: UiState = .init()
+
+    var count: Int = 0
     
     init(){
-        fetchCurrencyInfo(for: "USD-BRL")
+       fetchCurrencyInfo(for: "USD-BRL")
     }
 
     func fetchCurrencyInfo(for pair: String) {
@@ -46,4 +49,16 @@ class CurrencyViewModel: ObservableObject {
             }
         }.resume()
     }
+    
+    func updateCountrys(country: String){
+        if count % 2 == 0{
+            UiState.first_Country = country
+            UiState.first_Flag = country
+        }else {
+            UiState.second_Country = country
+            UiState.second_Flag = country
+        }
+        count += 1
+    }
+    
 }
