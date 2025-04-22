@@ -13,12 +13,9 @@ class CurrencyViewModel: ObservableObject {
     @Published var UiState: UiState = .init()
 
     var count: Int = 0
-    
-    init(){
-       fetchCurrencyInfo(for: "USD-BRL")
-    }
 
     func fetchCurrencyInfo(for pair: String) {
+        UiState.isLoading = true
         let formattedKey = pair.replacingOccurrences(of: "-", with: "")
         let urlString = "https://economia.awesomeapi.com.br/last/\(pair)"
 
@@ -42,7 +39,11 @@ class CurrencyViewModel: ObservableObject {
                 do {
                     let decoded = try JSONDecoder().decode([String: CurrencyInfo].self, from: data)
                     self.currencyInfo = decoded[formattedKey]
-                    print(self.currencyInfo)
+                    self.UiState.value = self.currencyInfo?.bid ?? ""
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        self.UiState.isLoading = false
+                        self.UiState.sucess = true
+                    }
                 } catch {
                     self.errorMessage = "Erro ao decodificar: \(error.localizedDescription)"
                 }
@@ -53,12 +54,15 @@ class CurrencyViewModel: ObservableObject {
     func updateCountrys(country: String){
         if count % 2 == 0{
             UiState.first_Country = country
-            UiState.first_Flag = country
         }else {
             UiState.second_Country = country
-            UiState.second_Flag = country
         }
         count += 1
+    }
+    
+    func reset(){
+        UiState.isLoading = false
+        UiState.sucess = false
     }
     
 }

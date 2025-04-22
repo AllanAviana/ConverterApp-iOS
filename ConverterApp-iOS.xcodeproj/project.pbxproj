@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B80782AC2DB6D35C00B5DF37 /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = B80782AB2DB6D35C00B5DF37 /* SwiftfulLoadingIndicators */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		B833E67B2DAB2B6D006E472B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B80782AC2DB6D35C00B5DF37 /* SwiftfulLoadingIndicators in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = "ConverterApp-iOS";
 			packageProductDependencies = (
+				B80782AB2DB6D35C00B5DF37 /* SwiftfulLoadingIndicators */,
 			);
 			productName = "ConverterApp-iOS";
 			productReference = B833E66A2DAB2B6C006E472B /* ConverterApp-iOS.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = B833E6612DAB2B6C006E472B;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B80782AA2DB6D35C00B5DF37 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B833E66B2DAB2B6C006E472B /* Products */;
 			projectDirPath = "";
@@ -552,6 +561,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B80782AA2DB6D35C00B5DF37 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulLoadingIndicators";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B80782AB2DB6D35C00B5DF37 /* SwiftfulLoadingIndicators */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B80782AA2DB6D35C00B5DF37 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */;
+			productName = SwiftfulLoadingIndicators;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B833E6622DAB2B6C006E472B /* Project object */;
 }

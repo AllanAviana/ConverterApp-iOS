@@ -13,15 +13,14 @@ struct ConverterView: View {
 
     var body: some View {
         VStack {
-            AmountInput(amount: $amount)
-
-            CurrencySelection(viewModel: viewModel)
-
-            ConvertButton(viewModel: viewModel)
-
-            Spacer().frame(height: 30)
-
-            CurrencyList(viewModel: viewModel)
+            if !viewModel.UiState.isLoading && !viewModel.UiState.sucess {
+                Home(amount: $amount, viewModel: viewModel)
+            }else if viewModel.UiState.isLoading {
+                Loading(viewModel: viewModel)
+            }
+            else if viewModel.UiState.sucess {
+                success(amount: $amount, viewModel: viewModel)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("StormBlue"))
