@@ -15,7 +15,7 @@ struct Home: View {
 
         CurrencySelection(viewModel: viewModel)
 
-        ConvertButton(viewModel: viewModel, text: "Convert")
+        ConvertButton(viewModel: viewModel, text: "Convert", amount: $amount)
 
         Spacer().frame(height: 42)
 

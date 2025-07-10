@@ -10,12 +10,18 @@ import SwiftUI
 struct ConvertButton: View {
     var viewModel: CurrencyViewModel
     var text: String
-
+    @Binding var amount: String
     var body: some View {
         Button(action: {
             if text == "Convert" {
-                viewModel.fetchCurrencyInfo(for: "\(viewModel.UiState.first_Country)-\(viewModel.UiState.second_Country)")
-            }else {
+                Task {  
+                    await viewModel.fetchCurrencyInfo(
+                        for:
+                            "\(viewModel.uiState.first_Country)-\(viewModel.uiState.second_Country)",
+                        amount: amount
+                    )
+                }
+            } else {
                 viewModel.reset()
             }
         }) {

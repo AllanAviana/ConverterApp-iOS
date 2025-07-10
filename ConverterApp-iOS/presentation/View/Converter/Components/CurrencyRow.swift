@@ -21,7 +21,7 @@ struct CurrencyRow: View {
             }
             .frame(width: 120)
             .onTapGesture {
-                viewModel.updateCountrys(country: code)
+                viewModel.updateCountries(with: code)
             }
             Spacer()
         }

@@ -11,15 +11,15 @@ struct success: View {
     @Binding var amount: String
     @ObservedObject var viewModel: CurrencyViewModel
     var body: some View {
-        ResultCard(isVisible: true,value: amount, countryCode: viewModel.UiState.first_Country)
+        ResultCard(isVisible: true,value: amount, countryCode: viewModel.uiState.first_Country)
         
         Image("Arrow")
             .resizable()
             .frame(width: 26, height: 26)
         
-        ResultCard(isVisible: false,value: "\(viewModel.UiState.value)", countryCode: viewModel.UiState.second_Country)
+        ResultCard(isVisible: false,value: "\(viewModel.uiState.value)", countryCode: viewModel.uiState.second_Country)
 
-        ConvertButton(viewModel: viewModel, text: "Do another conversion")
+        ConvertButton(viewModel: viewModel, text: "Do another conversion", amount: $amount)
 
         Spacer().frame(height: 26)
         

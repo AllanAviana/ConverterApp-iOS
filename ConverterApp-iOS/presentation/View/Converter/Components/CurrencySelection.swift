@@ -12,9 +12,9 @@ struct CurrencySelection: View {
 
     var body: some View {
         HStack {
-            CountryBox(imageName: viewModel.UiState.first_Country, code: viewModel.UiState.first_Country)
+            CountryBox(imageName: viewModel.uiState.first_Country, code: viewModel.uiState.first_Country)
             Spacer()
-            CountryBox(imageName: viewModel.UiState.second_Country, code: viewModel.UiState.second_Country)
+            CountryBox(imageName: viewModel.uiState.second_Country, code: viewModel.uiState.second_Country)
         }
         .frame(maxWidth: 263, alignment: .leading)
         .padding(.top, 16)

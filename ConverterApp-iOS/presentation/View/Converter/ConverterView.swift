@@ -13,12 +13,12 @@ struct ConverterView: View {
 
     var body: some View {
         VStack {
-            if !viewModel.UiState.isLoading && !viewModel.UiState.sucess {
+            if !viewModel.uiState.isLoading && !viewModel.uiState.success {
                 Home(amount: $amount, viewModel: viewModel)
-            }else if viewModel.UiState.isLoading {
+            }else if viewModel.uiState.isLoading {
                 Loading(viewModel: viewModel)
             }
-            else if viewModel.UiState.sucess {
+            else if viewModel.uiState.success {
                 success(amount: $amount, viewModel: viewModel)
             }
         }
